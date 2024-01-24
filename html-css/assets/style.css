@@ -1,0 +1,64 @@
+* {
+  color: gray;
+  font-family: "Noto Sans", sans-serif;
+  text-align: center;
+}
+
+html {
+  background-color: lightcyan;
+}
+
+#cat3 {
+  font-family: "Verdana";
+  color: rgb(9, 108, 25);
+  text-shadow: 5px 5px 5px #83647e;
+}
+
+h2 {
+  color: brown;
+}
+
+.red-text {
+  color: purple;
+}
+
+#specificheader {
+  color: gold;
+}
+
+h2[draggable] {
+  color: green;
+}
+
+h2[draggable="true"] {
+  color: green;
+}
+
+.color-title {
+  font-weight: normal;
+}
+
+#red {
+  color: red;
+}
+
+#blue {
+  color: blue;
+}
+
+#orange {
+  color: orangered;
+}
+
+#green {
+  color: green;
+}
+
+#yellow {
+  color: yellow;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}
