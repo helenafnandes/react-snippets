@@ -13,14 +13,37 @@ const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
 
 // Starting conditions
-score0El.textContent = 0;
-score1El.textContent = 0;           // js will convert it to strings
-diceEl.classList.add('hidden');     // hide dice at the beginning
+// score0El.textContent = 0;
+// score1El.textContent = 0;           // js will convert it to strings
+// diceEl.classList.add('hidden');     // hide dice at the beginning
 
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;         // state variable -> tells the condition of the system
+// const scores = [0, 0];
+// let currentScore = 0;
+// let activePlayer = 0;
+// let playing = true;         // state variable -> tells the condition of the system
+
+let scores, currentScore, activePlayer, playing; 
+
+// Startint conditions
+const init = function() {
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    current0El.textContent = 0;
+    current1El.textContent = 0;
+
+    scores = [0, 0];
+    currentScore = 0;
+    activePlayer = 0;
+    playing = true;  
+
+    player0El.classList.remove('player--winner');   // if it's not there, it wont be an error
+    player1El.classList.remove('player--winner');
+    player0El.classList.add('player--active');      // if its already there, it wont be duplicated
+    player1El.classList.remove('player--active');
+    diceEl.classList.add('hidden');
+    playing = true;
+}
+init();
 
 const switchPlayer = function() {
     activePlayer = activePlayer === 0 ? 1 : 0;
@@ -65,7 +88,7 @@ btnHold.addEventListener('click', function() {
         document.querySelector(`#current--${activePlayer}`).textContent = 0;
 
         // Check if player's score >= 100: if true, finish the game
-        if(scores[activePlayer] >= 10){
+        if(scores[activePlayer] >= 100){
             playing = false;
             diceEl.classList.add('hidden');
             document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
@@ -78,6 +101,8 @@ btnHold.addEventListener('click', function() {
     }
 })
 
-btnNew.addEventListener('click', function() {
-    playing = true;
-})
+// btnNew.addEventListener('click', function() {
+//     init();
+// })
+
+btnNew.addEventListener('click', init)
