@@ -44,6 +44,11 @@ const restaurant = {
 
   orderDelivery: function({starterIndex = 1, mainMenuIndex, address = 'default address', time}) {
     console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainMenuIndex]} will be delivered to ${address} at ${time}.`);
+  },
+
+  // spread operator
+  orderPasta: function(ing1, ing2, ing3) {
+    console.log(`Here is your pasta made with ${ing1}, ${ing2} and ${ing3}`)
   }
 };
 
@@ -60,9 +65,7 @@ restaurant.orderDelivery({
 
 
 
-
-
-// Destructuring objects ------------------
+// Destructuring objects ////////////////////////////////////////////////////////////////////
 
 // the order in object dont matter
 // the name of the variables must be the exact same as the properties
@@ -100,7 +103,9 @@ const { fri: {open, close} } = openingHours;
 //console.log(fri);                                 // ReferenceError: fri is not defined
 console.log(open, close);                         // 11 23
 
-// Destructuring arrays -------------------
+
+
+// Destructuring arrays //////////////////////////////////////////////////////////////////////
 const arr = [2, 3, 4];
 
 const a = arr[0];
@@ -141,3 +146,48 @@ const [p, q, r] = [8 , 9];
 console.log(p, q,r);                              // 8 9 undefined
 const [d = 1, e = 1, f = 1] = [8, 9];
 console.log(d, e, f);                             // 8 9 1
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * the spread operator expands the array into all its elements separated by commas.
+ * it works on all iterables (arrays, strings, maps, sets). also works on objects since 2018.
+ * used when you'd use element separated by commas.
+ * 
+ * some use cases:
+ * - create shallow copies of arrays
+ * - merge arrays
+ */
+// 
+
+const arr1 = [7, 8, 9];
+console.log(arr1);                                        // (3) [7, 8, 9]
+console.log(...arr1);                                     // 7 8 9
+
+const badNewArr1 = [1, 2, arr1[0], arr1[1], arr1[2]];     // [1, 2, 7, 8, 9]
+const badNewArr2 = [1, 2];
+arr1.forEach(el => {
+  badNewArr2.push(el);
+});                                                       // [1, 2, 7, 8, 9]
+
+const goodNewArr = [1, 2, ...arr1];                       // [1, 2, 7, 8, 9]
+console.log(...arr1);
+
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];       // original manu + gnocci
+
+const newRestaurant = {...restaurant, founder: 'Robin'}   // original restaurant + founder
+
+const str = 'Robin';
+const letters = [...str];
+console.log(letters);                                     // ['R', 'o', 'b', 'i', 'n']
+
+
+// const ingredients = [
+//   prompt('Ingredient 1?'),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?'),
+// ]
+const pastaIngredients = ['mushrooms', 'chicken', 'green onion'];
+restaurant.orderPasta(...pastaIngredients);
