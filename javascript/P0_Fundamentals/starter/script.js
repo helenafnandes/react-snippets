@@ -30,12 +30,44 @@ const restaurant = {
   order: function(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  /**
+   * sometimes we have functions with a lot of parameters
+   * and it can be hard to know the order of the parameters.
+   * so instead of defing the parameters manually, we can
+   * pass an object into the function as an argument and the
+   * function will immediately destructure that object.
+   */
+  exampleMethod: function(obj) {
+    console.log(obj);
+  },
+
+  orderDelivery: function({starterIndex = 1, mainMenuIndex, address = 'default address', time}) {
+    console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainMenuIndex]} will be delivered to ${address} at ${time}.`);
+  }
 };
+
+// the names of the properties have to match, but not the order
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Punk Hazard',
+  mainMenuIndex: 2,
+  starterIndex: 2
+})
+
+
+
+
+
+
+
+
 // Destructuring objects ------------------
 
 // the order in object dont matter
 // the name of the variables must be the exact same as the properties
-const {openingHours, rName} = restaurant
+const {categories} = restaurant;
+const {openingHours, rName} = restaurant;
 console.log(openingHours, rName);                 // {thu: {…}, fri: {…}, sat: {…}} 'Classico Italiano'
 
 // variables with names that are not the same as the properties'
@@ -50,10 +82,23 @@ console.log(menu, starterMenu);                   // [] (4) ['Focaccia', 'Brusc
 // using both together works
 // const {menu = [], starterMenu: starters = []}
 
+
 // Mutating variables
 let g = 111;
 let h = 999;
-const obj = { a: 13, b: 25, c: 42};
+const obj = { g: 13, h: 25, i: 42};
+const obj2 = { a: 13, b: 25, c: 42};
+
+({g, h} = obj);
+console.log(g, h);                                // 13, 25
+({g, h} = obj2);
+console.log(g, h);                                // undefined undefined
+
+
+// Nested objects
+const { fri: {open, close} } = openingHours;
+//console.log(fri);                                 // ReferenceError: fri is not defined
+console.log(open, close);                         // 11 23
 
 // Destructuring arrays -------------------
 const arr = [2, 3, 4];
