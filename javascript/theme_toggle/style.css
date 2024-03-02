@@ -19,14 +19,18 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-button, input[type="submit"], input[type="reset"] {
-	/* background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit; */
+body{
+	--background-color: white;
+	--text-color: black;
+	--card-border-color:  rgb(226, 226, 226);
+	--card-background-color: rgb(245, 245, 245);
+}
+
+body{
+	--background-color: #18122B;
+	--text-color: rgb(255, 255, 255);
+	--card-border-color: #393053;
+	--card-background-color: #443C68;
 }
   
 body {
@@ -34,14 +38,16 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	background-color: var(--background-color);
+	color: var(--text-color);
 }
 
 .card {
 	box-sizing: border-box;
 	width: 50%;
 	height: 80%;
-	border: 10px solid rgb(226, 226, 226);
-	background-color: rgb(245, 245, 245);
+	border: 10px solid var(--card-border-color);
+	background-color: var(--card-background-color);
 	border-radius: 40px;
 
 	display: flex;
@@ -84,14 +90,14 @@ h1{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-weight: bold;
 	border-width: 3px;
+
+	color: orange;
+	border-color: orange;
+	background-color: var(--background-color);
 }
 
-.btn-dark-unselected {
-	border-color: rgb(169, 169, 169);
-	background-color: rgb(194, 194, 194);
-}
-
-.btn-light-selected {
-	border-color: rgb(241, 241, 241);
-	background-color: rgb(255, 255, 255);
+.btn-selected {
+	color: white;
+	border-color: orange;
+	background-color: orange;
 }
