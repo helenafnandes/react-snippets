@@ -26,7 +26,7 @@ body{
 	--card-background-color: rgb(245, 245, 245);
 }
 
-body{
+body.dark{
 	--background-color: #18122B;
 	--text-color: rgb(255, 255, 255);
 	--card-border-color: #393053;
@@ -44,7 +44,7 @@ body {
 
 .card {
 	box-sizing: border-box;
-	width: 50%;
+	width: 300px;
 	height: 80%;
 	border: 10px solid var(--card-border-color);
 	background-color: var(--card-background-color);
@@ -74,6 +74,7 @@ img {
 h1{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	margin-bottom: 10%;
+	font-size: larger;
 }
 
 .buttons{
@@ -93,7 +94,7 @@ h1{
 
 	color: orange;
 	border-color: orange;
-	background-color: var(--background-color);
+	background-color: var(--card-border-color);
 }
 
 .btn-selected {
