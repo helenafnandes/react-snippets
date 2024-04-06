@@ -1,0 +1,27 @@
+.wrapper {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(0, 0, 0, 0.87);
+
+  width: 50vw;
+}
+
+.Item {
+  background-color: aliceblue;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.Item:has(.content) {
+  background-color: rgb(161, 242, 143);
+}
+
+.topic {
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  padding: 10px;
+}
