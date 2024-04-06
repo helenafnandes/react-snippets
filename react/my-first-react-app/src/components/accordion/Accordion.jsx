@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import data from './data';
-import './index.css';
+import './Accordion.css';
 
 export default function Accordion() {
   // single selection
@@ -39,7 +39,7 @@ export default function Accordion() {
               clearSelectedItems();
             }}
           >
-            Turn on Singleselection
+            Turn on Single Selection
           </button>
         ) : (
           <button
