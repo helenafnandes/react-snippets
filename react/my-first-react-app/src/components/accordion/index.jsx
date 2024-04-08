@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import data from './data';
-import './Accordion.css';
+import './index.css';
 
 export default function Accordion() {
   // single selection
