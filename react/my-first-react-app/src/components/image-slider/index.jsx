@@ -9,7 +9,7 @@ export default function ImageSlider({ url, limit = 5 }) {
   async function fetchData(url) {
     try {
       setLoading(true);
-      const response = await fetch(url);
+      const response = await fetch(`${url}?page=1&limit=${limit}`);
       if (!response.ok) {
         setErrorMsg('Network response was not ok');
         throw new Error('Network response was not ok');

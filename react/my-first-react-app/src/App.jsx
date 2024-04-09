@@ -23,10 +23,7 @@ function App() {
       <StarRating noOfStars={5} />
       <hr />
       <h2>Image Slider</h2>
-      <ImageSlider
-        url={'https://picsum.photos/v2/list?page=1&limit=10'}
-        limit={'10'}
-      />
+      <ImageSlider url={'https://picsum.photos/v2/list'} limit={'10'} />
     </div>
   );
 }
