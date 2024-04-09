@@ -1,3 +1,25 @@
-.active {
+.hovered {
   color: rgb(255, 213, 0);
+}
+
+.rated {
+  color: rgb(255, 213, 0);
+  stroke: rgb(255, 255, 255);
+  stroke-width: 2rem;
+  border-color: aliceblue;
+
+  /* Animation for stroke */
+  animation: strokeAnimation 1s forwards;
+}
+
+@keyframes strokeAnimation {
+  0% {
+    stroke-width: 0; /* Start with no stroke */
+  }
+  50% {
+    stroke-width: 2rem; /* Apply stroke halfway through the animation */
+  }
+  100% {
+    stroke-width: 0; /* Revert back to no stroke at the end of the animation */
+  }
 }
