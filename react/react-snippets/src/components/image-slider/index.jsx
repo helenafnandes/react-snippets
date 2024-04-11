@@ -27,7 +27,7 @@ export default function ImageSlider({ url, limit = 5 }) {
   async function getImageData() {
     const imageData = await fetchData(url);
     setImages(imageData);
-    console.log(imageData); // Check the fetched JSON data
+    console.log(images); // Check the fetched JSON data
   }
 
   useEffect(() => {
