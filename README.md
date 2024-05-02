@@ -6,7 +6,7 @@ This repository serves as a collection of diverse code snippets, reflecting my e
 
 - **JavaScript Projects:** Explore my experiments and smaller projects in JavaScript, ranging from simple games to interactive web applications.
   
-- **Web Development Snippets:** Find code snippets related to CSS styles, HTML structures, and other web development essentials.
+- **Web Development Snippets:** Code snippets related to ReactJS, HTML, CSS, TailWind and other web development essentials.
 
 - **Python Explorations:** Python projects and snippets, covering a range of applications and algorithms.
 
