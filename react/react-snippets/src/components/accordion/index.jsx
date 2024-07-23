@@ -31,7 +31,7 @@ export default function Accordion() {
 
   return (
     <div className="wrapper">
-      <div>
+      <div className="selectionBtn">
         {multiSelection ? (
           <button
             onClick={() => {
@@ -57,7 +57,7 @@ export default function Accordion() {
         {data && data.length > 0 ? (
           data.map((dataItem) => (
             <div
-              className="Item"
+              className="item"
               onClick={
                 multiSelection
                   ? () => handleMultiSelection(dataItem.id)

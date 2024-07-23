@@ -1,17 +1,19 @@
 .wrapper {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: column;
 
-  width: 50vw;
+  width: 40vw;
 }
 
-.Item {
+.item {
   background-color: aliceblue;
   border-radius: 5px;
   margin: 10px;
 }
 
-.Item:has(.content) {
+.item:has(.content) {
   background-color: rgb(161, 242, 143);
 }
 
@@ -20,8 +22,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 4em;
 }
 
 .content {
   padding: 10px;
+}
+
+.selectionBtn {
+  align-self: center;
+  margin-bottom: 1em;
 }
