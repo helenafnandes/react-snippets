@@ -60,6 +60,10 @@ function SideNavbar({ visible, show }) {
               <FaThLarge size={ICON_SIZE} />
               <span>Scroll Progress Bar</span>
             </NavLink>
+            <NavLink to="/text-to-speech" className="nav-link">
+              <FaThLarge size={ICON_SIZE} />
+              <span>Text to Speech</span>
+            </NavLink>
           </div>
         </div>
 
