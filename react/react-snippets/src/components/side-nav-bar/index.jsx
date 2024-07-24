@@ -6,7 +6,9 @@ import {
   FaCog,
   FaSignOutAlt,
   FaBars,
+  FaGithub,
 } from 'react-icons/fa';
+import { GiCubes } from 'react-icons/gi';
 import { NavLink } from 'react-router-dom';
 import './index.css';
 
@@ -30,11 +32,14 @@ function SideNavbar({ visible, show }) {
         </button>
         <div>
           <NavLink className="logo" to="/">
-            <div className="title">
-              <h1>React Snippets</h1>
-            </div>
+            <GiCubes size={150} />
           </NavLink>
           <div className="links nav-top">
+            <div className="bar-title">
+              <span>Snippets</span>
+              <hr />
+            </div>
+
             <NavLink to="/star-rating" className="nav-link">
               <FaThLarge size={ICON_SIZE} />
               <span>Star Rating</span>
@@ -53,18 +58,17 @@ function SideNavbar({ visible, show }) {
             </NavLink>
             <NavLink to="/scroll-progress-bar" className="nav-link">
               <FaThLarge size={ICON_SIZE} />
-              <span>aaa</span>
+              <span>Scroll Progress Bar</span>
             </NavLink>
           </div>
         </div>
 
         <div className="links">
           <NavLink to="/settings" className="nav-link">
-            <FaCog size={ICON_SIZE} />
+            <FaGithub size={ICON_SIZE} />
             <span>View on Github</span>
           </NavLink>
           <NavLink to="/Sign-out" className="nav-link">
-            <FaSignOutAlt size={ICON_SIZE} />
             <h6>Made by Helena Fernandes</h6>
           </NavLink>
         </div>

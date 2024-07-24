@@ -134,7 +134,7 @@ const ScrollProgressBar = () => {
         ></div>
       </header>
       <div className={`container`}>
-        <h3>Lista de Nomes de Gatos</h3>
+        <h4>Lista de Nomes de Gatos</h4>
         <ul id="cat-list">
           {catNames.map((name, index) => (
             <li key={index}>{name}</li>

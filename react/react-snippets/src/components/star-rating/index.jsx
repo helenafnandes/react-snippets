@@ -1,144 +1,53 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from 'react';
+import { FaStar } from 'react-icons/fa';
 import './index.css';
 
-const catNames = [
-  'Bolinha',
-  'Frajola',
-  'Bidu',
-  'Bibi',
-  'Branquinho',
-  'Fofinho',
-  'Frajola',
-  'Xuxu',
-  'Pipoca',
-  'Pretinho',
-  'Felix',
-  'Mel',
-  'Pituco',
-  'Sombra',
-  'Marrom',
-  'Nina',
-  'Luna',
-  'Tico',
-  'Teca',
-  'Tobias',
-  'Tom',
-  'Zé',
-  'Pingo',
-  'Gatinho',
-  'Garfield',
-  'Mingau',
-  'Marie',
-  'Bola de Neve',
-  'Mimi',
-  'Ziggy',
-  'Miau',
-  'Preta',
-  'Mia',
-  'Pandora',
-  'Gato',
-  'Gata',
-  'Amora',
-  'Neném',
-  'Júnior',
-  'Mariana',
-  'Estrelinha',
-  'Snow',
-  'Neve',
-  'Nevada',
-  'Thor',
-  'Fred',
-  'Bebê',
-  'Bebezinho',
-  'Manchinha',
-  'Lua',
-  'Nico',
-  'Nicolau',
-  'Nick',
-  'Princesa',
-  'Bebel',
-  'Pitoco',
-  'Anjo',
-  'Lolita',
-  'Miauzinho',
-  'Aurora',
-  'Mimi',
-  'Fumaça',
-  'Whiskas',
-  'Whisky',
-  'Whiskinho',
-  'Branquinha',
-  'Frajolinha',
-  'Branco',
-  'Jasmim',
-  'Dudu',
-  'Duda',
-  'Bolinha',
-  'Nanico',
-  'Tigrão',
-  'Tigrinho',
-  'Docinho',
-  'Pérola',
-  'Zézinho',
-  'Marmaduke',
-  'Frida',
-  'Gugu',
-  'Chiquinho',
-  'Nala',
-  'Príncipe',
-  'Princesinha',
-  'Romeu',
-  'Julieta',
-  'Pretinha',
-  'Tico-Tico',
-  'Sissi',
-  'Milo',
-  'Milu',
-  'Pirata',
-  'Tuca',
-  'Fubá',
-  'Nico',
-  'Nicolau',
-  'Tutu',
-  'Cacau',
-  'Naná',
-];
-
-const ScrollProgressBar = () => {
-  const [scrollPercent, setScrollPercent] = useState(0);
-  const [isPageEnd, setIsPageEnd] = useState(false);
+export default function StarRating({ noOfStars = 5 }) {
+  const [rating, setRating] = useState(0);
+  const [hovering, setHovering] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const windowHeight = window.innerHeight;
-      const scrollHeight = document.documentElement.scrollHeight;
-      const scrollPercent = (scrollTop / (scrollHeight - windowHeight)) * 100;
-      setScrollPercent(scrollPercent);
-      setIsPageEnd(scrollPercent >= 100);
-    };
+    if (currentIndex !== 0) {
+      setRating(currentIndex); // Update rating only when currentIndex changes and it's not 0
+    }
+  }, [currentIndex]); // Set currentIndex as a dependency
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  function handleClick(currentIndex) {
+    setRating(0);
+    setCurrentIndex(currentIndex); // Update currentIndex when a star is clicked
+  }
+
+  function handleMouseMove(currentIndex) {
+    setHovering(currentIndex);
+  }
+
+  function handleMouseLeave() {
+    setHovering(0);
+  }
 
   return (
-    <div>
-      <header>
-        <h1>Scroll Progress Bar</h1>
-        <div id="bar-background"></div>
-        <div id="bar-progress" style={{ width: `${scrollPercent}%` }}></div>
-      </header>
-      <div className={`container ${isPageEnd ? 'page-end' : ''}`}>
-        <h2>Lista de Nomes de Gatos</h2>
-        <ul id="cat-list">
-          {catNames.map((name, index) => (
-            <li key={index}>{name}</li>
-          ))}
-        </ul>
-      </div>
+    <div className="star-rating">
+      {[...Array(noOfStars)].map((_, index) => {
+        const starIndex = index + 1;
+        return (
+          <FaStar
+            key={starIndex}
+            onClick={() => handleClick(starIndex)}
+            onMouseMove={() => handleMouseMove(starIndex)}
+            onMouseLeave={handleMouseLeave}
+            size={40}
+            className={
+              starIndex <= rating
+                ? 'rated'
+                : starIndex <= hovering
+                  ? 'hovered'
+                  : ''
+            }
+          />
+        );
+      })}
     </div>
   );
-};
-
-export default ScrollProgressBar;
+}
