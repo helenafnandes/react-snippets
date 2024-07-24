@@ -64,13 +64,16 @@ function SideNavbar({ visible, show }) {
         </div>
 
         <div className="links">
-          <NavLink to="/settings" className="nav-link">
+          <div className="nav-link bottom">
             <FaGithub size={ICON_SIZE} />
-            <span>View on Github</span>
-          </NavLink>
-          <NavLink to="/Sign-out" className="nav-link">
-            <h6>Made by Helena Fernandes</h6>
-          </NavLink>
+            <a
+              href="https://github.com/helenafnandes/diverse-code-snippets"
+              target="_blank"
+            >
+              View on Github
+            </a>
+          </div>
+          <h6 className="credits">Made by Helena Fernandes</h6>
         </div>
       </nav>
     </>
