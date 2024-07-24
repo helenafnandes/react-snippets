@@ -123,14 +123,18 @@ const ScrollProgressBar = () => {
   }, []);
 
   return (
-    <div>
+    <div className={`${isPageEnd ? 'page-end' : ''}`}>
       <header>
         <h1>Scroll Progress Bar</h1>
         <div id="bar-background"></div>
-        <div id="bar-progress" style={{ width: `${scrollPercent}%` }}></div>
+        <div
+          id="bar-progress"
+          className={`bar ${isPageEnd ? 'page-end' : ''}`}
+          style={{ width: `${scrollPercent}%` }}
+        ></div>
       </header>
-      <div className={`container ${isPageEnd ? 'page-end' : ''}`}>
-        <h2>Lista de Nomes de Gatos</h2>
+      <div className={`container`}>
+        <h3>Lista de Nomes de Gatos</h3>
         <ul id="cat-list">
           {catNames.map((name, index) => (
             <li key={index}>{name}</li>

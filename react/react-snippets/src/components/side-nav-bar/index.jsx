@@ -47,6 +47,14 @@ function SideNavbar({ visible, show }) {
               <FaThLarge size={ICON_SIZE} />
               <span>Random Color Generator</span>
             </NavLink>
+            <NavLink to="/image-slider" className="nav-link">
+              <FaThLarge size={ICON_SIZE} />
+              <span>Image Slider</span>
+            </NavLink>
+            <NavLink to="/scroll-progress-bar" className="nav-link">
+              <FaThLarge size={ICON_SIZE} />
+              <span>aaa</span>
+            </NavLink>
           </div>
         </div>
 

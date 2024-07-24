@@ -1,0 +1,67 @@
+header {
+  background: linear-gradient(#242424 60%, #ff000000 100%);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0px;
+  padding-bottom: 1em;
+}
+
+h1 {
+  font-size: xx-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 20px;
+  align-self: center;
+}
+
+#bar-background,
+#bar-progress {
+  background-color: rgba(127, 255, 242, 0.907);
+  height: 15px;
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+  border-radius: 10px;
+}
+
+#bar-progress {
+  z-index: 10;
+  background-color: rgb(172, 24, 76);
+  width: 0%;
+  transition: width 0.25s;
+}
+
+h3 {
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 20px;
+  align-self: center;
+}
+
+li {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-top: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-end {
+  background-color: rgba(122, 228, 86, 0.301);
+}
+
+@media only screen and (max-width: 450px) {
+  header {
+    background: linear-gradient(rgb(72, 72, 72) 60%, rgba(255, 0, 0, 0) 100%);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 40px;
+    padding-bottom: 1em;
+  }
+}

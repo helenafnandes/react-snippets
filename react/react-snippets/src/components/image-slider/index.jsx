@@ -10,6 +10,7 @@ export default function ImageSlider({ url, limit = 5 }) {
     try {
       setLoading(true);
       const response = await fetch(`${url}?page=1&limit=${limit}`);
+      console.log(response); // Check the response object
       if (!response.ok) {
         setErrorMsg('Network response was not ok');
         throw new Error('Network response was not ok');
