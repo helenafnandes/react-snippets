@@ -32,11 +32,11 @@ function SideNavbar({ visible, show }) {
         </button>
         <div>
           <NavLink className="logo" to="/">
-            <GiCubes size={150} />
+            <GiCubes size={50} />
           </NavLink>
-          <div className="links nav-top">
+          <div className="links nav-top snippets-container">
             <div className="bar-title">
-              <span>Snippets</span>
+              <span>React Snippets</span>
               <hr />
             </div>
 
@@ -63,6 +63,14 @@ function SideNavbar({ visible, show }) {
             <NavLink to="/text-to-speech" className="nav-link">
               <FaThLarge size={ICON_SIZE} />
               <span>Text to Speech</span>
+            </NavLink>
+            <NavLink to="/side-nav-bar" className="nav-link">
+              <FaThLarge size={ICON_SIZE} />
+              <span>This Side NavBar</span>
+            </NavLink>
+            <NavLink to="/theme-toggle" className="nav-link">
+              <FaThLarge size={ICON_SIZE} />
+              <span>Theme Toggle</span>
             </NavLink>
           </div>
         </div>

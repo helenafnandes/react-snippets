@@ -7,6 +7,7 @@ import ImageSlider from './components/image-slider';
 import NavBar from './components/side-nav-bar';
 import ScrollProgressBar from './components/scroll-progress-bar';
 import TextToSpeech from './components/text-to-speech';
+import ThemeToggle from './components/theme-toggle';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
@@ -67,6 +68,14 @@ function App() {
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
                 <TextToSpeech />
+              </div>
+            }
+          />
+          <Route
+            path="/theme-toggle"
+            element={
+              <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
+                <ThemeToggle />
               </div>
             }
           />
