@@ -38,6 +38,10 @@
   transition: margin-left 1s;
 }
 
+.page h2 {
+  align-self: center;
+}
+
 .page-with-navbar {
   margin-left: 15%;
 }

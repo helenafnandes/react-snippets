@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 export default function ImageSlider({ url, limit = 5 }) {
   const [images, setImages] = useState([]);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [errorMsg, setErrorMsg] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -10,7 +9,6 @@ export default function ImageSlider({ url, limit = 5 }) {
     try {
       setLoading(true);
       const response = await fetch(`${url}?page=1&limit=${limit}`);
-      console.log(response); // Check the response object
       if (!response.ok) {
         setErrorMsg('Network response was not ok');
         throw new Error('Network response was not ok');
@@ -27,20 +25,34 @@ export default function ImageSlider({ url, limit = 5 }) {
 
   async function getImageData() {
     const imageData = await fetchData(url);
-    setImages(imageData);
-    console.log(images); // Check the fetched JSON data
+    if (imageData) {
+      setImages(imageData);
+    }
   }
 
   useEffect(() => {
     if (url !== '') getImageData();
   }, [url]);
 
+  const handleError = () => {
+    setErrorMsg('Failed to load image');
+  };
+
   if (loading) {
-    return <div className="container">Loading</div>;
+    return <div className="container">Loading...</div>;
   }
 
   if (errorMsg !== null) {
-    return <div>Error: {errorMsg}</div>;
+    return <div className="container">Error: {errorMsg}</div>;
   }
-  return <div className="container">index</div>;
+
+  return (
+    <div className="container">
+      {images.length > 0 ? (
+        <img src={images[0].url} alt="First slide" onError={handleError} />
+      ) : (
+        <div>No images available</div>
+      )}
+    </div>
+  );
 }

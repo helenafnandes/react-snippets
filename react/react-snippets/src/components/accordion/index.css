@@ -33,3 +33,9 @@
   align-self: center;
   margin-bottom: 1em;
 }
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    width: 70vw;
+  }
+}
