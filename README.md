@@ -1,29 +1,18 @@
-# Helena's Code Playground
+# React Snippets
 
-This repository serves as a collection of diverse code snippets, reflecting my exploration and experimentation with various programming languages and concepts.
+This project is a collection of small React components created to explore and learn various React concepts.
 
-## Contents
+## See Live
 
-- **JavaScript Projects:** Explore my experiments and smaller projects in JavaScript, ranging from simple games to interactive web applications.
-  
-- **Web Development Snippets:** Code snippets related to ReactJS, HTML, CSS, TailWind and other web development essentials.
+Check out the live demo [here](#) on Vercel.
 
-- **Python Explorations:** Python projects and snippets, covering a range of applications and algorithms.
+## Snippets
 
-- **And More:** This repository is a dynamic collection that evolves as I delve into new technologies and coding challenges.
-
-## Usage
-
-Feel free to explore the projects and snippets within this repository. Each subfolder is dedicated to a specific language or topic, and some projects have their own README and instructions. Whether you're a fellow developer looking for inspiration or someone interested in my coding journey, I hope you find something interesting here.
-
-## Acknowledgements
-Some of these projects were created as part of my learning experience in the following courses:
-- **The Complete JavaScript Course: From Zero to Expert!** by Jonas Schmedtmann: This course provided valuable insights and guidance for building real-world JavaScript applications.
-- **100 Days of Code: The Complete Python Pro Bootcamp** by Angela Yu: Angela's immersive Python course, challenging me to build 100 projects, has been instrumental in honing my Python skills. The course covers data science, automation, website development, game creation, and app building.
-- **The Complete Web Development Bootcamp** by Angela Yu: Angela's comprehensive web development bootcamp is currently expanding my skills, providing a holistic understanding of modern web development, including technologies such as Node, React, PostgreSQL, Web3, and DApps.
-
-## Connect with Me
-
-If you have questions, suggestions, or just want to connect, you can find me on [LinkedIn](https://www.linkedin.com/in/helenaff/).
-
-😁
+- **Star Rating**: A component that allows users to rate items using a star system.
+- **Accordion**: A collapsible section component for displaying content in an organized manner.
+- **Random Color Generator**: Generates random colors with a single click.
+- **Image Slider**: A component for sliding through a set of images.
+- **Scroll Progress Bar**: Displays the scroll progress of the page.
+- **Text to Speech**: Converts written text into spoken words.
+- **Side NavBar**: A side navigation bar for easy navigation between components.
+- **Theme Toggle**: Allows users to switch between light and dark themes.
