@@ -121,6 +121,14 @@ function SideNavbar({ visible, show }) {
               <FaThLarge size={ICON_SIZE} />
               <span>Theme Toggle</span>
             </NavLink>
+            <NavLink
+              to="/throttle-debounce"
+              className="nav-link"
+              onClick={handleLinkClick}
+            >
+              <FaThLarge size={ICON_SIZE} />
+              <span>Throttle and Debounce</span>
+            </NavLink>
           </div>
         </div>
 

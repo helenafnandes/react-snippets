@@ -8,6 +8,7 @@ import NavBar from './components/side-nav-bar';
 import ScrollProgressBar from './components/scroll-progress-bar';
 import TextToSpeech from './components/text-to-speech';
 import ThemeToggle from './components/theme-toggle';
+import ThrottleDebounce from './components/throttle-debounce/ThrottleDebounce';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
@@ -80,10 +81,10 @@ function App() {
             }
           />
           <Route
-            path="/settings"
+            path="/throttle-debounce"
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
-                <h1>Settings</h1>
+                <ThrottleDebounce />
               </div>
             }
           />
