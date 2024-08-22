@@ -10,10 +10,19 @@ import TextToSpeech from './components/text-to-speech';
 import ThemeToggle from './components/theme-toggle';
 import ThrottleDebounce from './components/throttle-debounce/ThrottleDebounce';
 import ScrollGallery from './components/scroll-gallery/ScrollGallery';
+import ThumbnailGallery from './components/thumbnail-gallery/ThumbnailGallery';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
   const [navVisible, showNavbar] = useState(true);
+
+  const images = [
+    { src: 'https://picsum.photos/id/237/800/600', alt: 'Image 1' },
+    { src: 'https://picsum.photos/id/238/800/600', alt: 'Image 2' },
+    { src: 'https://picsum.photos/id/239/800/600', alt: 'Image 3' },
+    { src: 'https://picsum.photos/id/240/800/600', alt: 'Image 4' },
+    { src: 'https://picsum.photos/id/241/800/600', alt: 'Image 5' },
+  ];
 
   return (
     <BrowserRouter>
@@ -95,6 +104,17 @@ function App() {
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
                 <h2 id="id-sg">Scroll Gallery with Lazy Loading</h2>
                 <ScrollGallery />
+              </div>
+            }
+          />
+          <Route
+            path="/thumbnail-gallery"
+            element={
+              <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
+                <h2>Thumbnail Gallery with Memoization</h2>
+                <div className="thumbnail-gallery">
+                  <ThumbnailGallery images={images} />
+                </div>
               </div>
             }
           />

@@ -72,6 +72,11 @@ button:hover {
   margin-top: 10%;
 }
 
+.thumbnail-gallery img {
+  max-height: 50vh;
+  background-color: red;
+}
+
 @media only screen and (max-width: 768px) {
   .page-with-navbar {
     width: 100%;

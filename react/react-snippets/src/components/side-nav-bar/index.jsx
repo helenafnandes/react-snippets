@@ -137,6 +137,14 @@ function SideNavbar({ visible, show }) {
               <FaThLarge size={ICON_SIZE} />
               <span>Scroll Gallery</span>
             </NavLink>
+            <NavLink
+              to="/thumbnail-gallery"
+              className="nav-link"
+              onClick={handleLinkClick}
+            >
+              <FaThLarge size={ICON_SIZE} />
+              <span>Thumbnail Gallery</span>
+            </NavLink>
           </div>
         </div>
 
