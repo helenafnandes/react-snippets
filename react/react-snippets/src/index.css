@@ -68,6 +68,10 @@ button:hover {
   margin-bottom: 1em;
 }
 
+#id-sg {
+  margin-top: 10%;
+}
+
 @media only screen and (max-width: 768px) {
   .page-with-navbar {
     width: 100%;

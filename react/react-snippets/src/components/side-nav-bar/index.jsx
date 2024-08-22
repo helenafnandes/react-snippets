@@ -129,6 +129,14 @@ function SideNavbar({ visible, show }) {
               <FaThLarge size={ICON_SIZE} />
               <span>Throttle and Debounce</span>
             </NavLink>
+            <NavLink
+              to="/scroll-gallery"
+              className="nav-link"
+              onClick={handleLinkClick}
+            >
+              <FaThLarge size={ICON_SIZE} />
+              <span>Scroll Gallery</span>
+            </NavLink>
           </div>
         </div>
 

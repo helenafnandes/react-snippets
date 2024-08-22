@@ -1,0 +1,16 @@
+.scroll-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin: 10%;
+}
+
+.scroll-gallery__item {
+  flex-basis: calc(33.333% - 1em);
+  margin-bottom: 1em;
+}
+
+.scroll-gallery__image {
+  width: 100%;
+  height: auto;
+}
