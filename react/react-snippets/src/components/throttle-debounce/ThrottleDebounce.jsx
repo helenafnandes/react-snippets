@@ -71,11 +71,13 @@ const ThrottleDebounce = () => {
 
   const startTypingComparison = () => {
     setMode('typing');
+    setDelay(1000);
     resetCounts();
   };
 
   const startMouseMoveComparison = () => {
     setMode('mouse');
+    setDelay(100);
     resetCounts();
   };
 
@@ -99,33 +101,44 @@ const ThrottleDebounce = () => {
       </div>
 
       {mode === 'typing' ? (
-        <div>
+        <div className="typing-comparison">
           <input
             type="text"
             value={inputValue}
             onChange={handleInputChange}
             placeholder="Type here..."
+            className="typing-input"
           />
-          <div>
-            <h3>Default:</h3> {inputValue}
-          </div>
-          <div>
-            <h3>Throttle:</h3> {throttledValue}
-          </div>
-          <div>
-            <h3>Debounce:</h3> {debouncedValue}
+          <div className="comparison-grid">
+            <div className="comparison-item">
+              <h3 className="comparison-title">Default</h3>
+              <div className="text-box">{inputValue}</div>
+            </div>
+            <div className="comparison-item">
+              <h3 className="comparison-title">Throttle</h3>
+              <div className="text-box">{throttledValue}</div>
+            </div>
+            <div className="comparison-item">
+              <h3 className="comparison-title">Debounce</h3>
+              <div className="text-box">{debouncedValue}</div>
+            </div>
           </div>
         </div>
       ) : (
-        <div>
-          <div>
-            <h3>Default:</h3> {mouseMoveCount}
-          </div>
-          <div>
-            <h3>Throttle:</h3> {throttledMouseCount}
-          </div>
-          <div>
-            <h3>Debounce:</h3> {debouncedMouseCount}
+        <div className="mouse-comparison">
+          <div className="comparison-grid">
+            <div className="comparison-item mouse-item">
+              <h3 className="comparison-title">Default</h3>
+              <div className="counter-box">{mouseMoveCount}</div>
+            </div>
+            <div className="comparison-item mouse-item">
+              <h3 className="comparison-title">Throttle</h3>
+              <div className="counter-box">{throttledMouseCount}</div>
+            </div>
+            <div className="comparison-item mouse-item">
+              <h3 className="comparison-title">Debounce</h3>
+              <div className="counter-box">{debouncedMouseCount}</div>
+            </div>
           </div>
         </div>
       )}
