@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from '../ui';
 import data from './data';
 import './index.css';
 
@@ -33,23 +34,25 @@ export default function Accordion() {
     <div className="wrapper">
       <div className="selectionBtn">
         {multiSelection ? (
-          <button
+          <Button
+            variant="outline"
             onClick={() => {
               setMultiSelection(false);
               clearSelectedItems();
             }}
           >
             Turn on Single Selection
-          </button>
+          </Button>
         ) : (
-          <button
+          <Button
+            variant="outline"
             onClick={() => {
               setMultiSelection(true);
               clearSelectedItems();
             }}
           >
             Turn on MultiSelection
-          </button>
+          </Button>
         )}
       </div>
 

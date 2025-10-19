@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import Accordion from './components/accordion';
 import RandomColor from './components/random-color';
@@ -11,6 +10,7 @@ import ThemeToggle from './components/theme-toggle';
 import ThrottleDebounce from './components/throttle-debounce/ThrottleDebounce';
 import ScrollGallery from './components/scroll-gallery/ScrollGallery';
 import ThumbnailGallery from './components/thumbnail-gallery/ThumbnailGallery';
+import { ThemeToggle as GlobalThemeToggle } from './components/ui';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
@@ -27,6 +27,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <div className="app-header">
+          <GlobalThemeToggle variant="switch" showLabel={false} />
+        </div>
         <NavBar visible={navVisible} show={showNavbar} />
         <Routes>
           <Route path="/" element={<Navigate to="/all" />} />
@@ -35,7 +38,9 @@ function App() {
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
                 <h2>Star Rating</h2>
-                <StarRating noOfStars={5} />
+                <div className="page-content">
+                  <StarRating noOfStars={5} />
+                </div>
               </div>
             }
           />
@@ -44,7 +49,9 @@ function App() {
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
                 <h2>Accordion</h2>
-                <Accordion />
+                <div className="page-content">
+                  <Accordion />
+                </div>
               </div>
             }
           />
@@ -53,24 +60,31 @@ function App() {
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
                 <h2>Random Color Generator</h2>
-                <RandomColor />
+                <div className="page-content">
+                  <RandomColor />
+                </div>
               </div>
             }
           />
-          <Route
+          {/* <Route
             path="/image-slider"
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
                 <h2>Image Slider</h2>
-                <ImageSlider url={'https://picsum.photos/v2/list'} />
+                <div className="page-content">
+                  <ImageSlider url={'https://picsum.photos/v2/list'} />
+                </div>
               </div>
             }
-          />
+          /> */}
           <Route
             path="/scroll-progress-bar"
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
-                <ScrollProgressBar />
+                <h2>Scroll Progress Bar</h2>
+                <div className="page-content">
+                  <ScrollProgressBar />
+                </div>
               </div>
             }
           />
@@ -78,7 +92,10 @@ function App() {
             path="/text-to-speech"
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
-                <TextToSpeech />
+                <h2>Text to Speech</h2>
+                <div className="page-content">
+                  <TextToSpeech />
+                </div>
               </div>
             }
           />
@@ -86,7 +103,10 @@ function App() {
             path="/theme-toggle"
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
-                <ThemeToggle />
+                <h2>Theme Toggle</h2>
+                <div className="page-content">
+                  <ThemeToggle />
+                </div>
               </div>
             }
           />
@@ -94,7 +114,10 @@ function App() {
             path="/throttle-debounce"
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
-                <ThrottleDebounce />
+                <h2>Throttle and Debounce</h2>
+                <div className="page-content">
+                  <ThrottleDebounce />
+                </div>
               </div>
             }
           />
@@ -102,8 +125,10 @@ function App() {
             path="/scroll-gallery"
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
-                <h2 id="id-sg">Scroll Gallery with Lazy Loading</h2>
-                <ScrollGallery />
+                <h2>Scroll Gallery with Lazy Loading</h2>
+                <div className="page-content">
+                  <ScrollGallery />
+                </div>
               </div>
             }
           />
@@ -112,8 +137,10 @@ function App() {
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
                 <h2>Thumbnail Gallery with Memoization</h2>
-                <div className="thumbnail-gallery">
-                  <ThumbnailGallery images={images} />
+                <div className="page-content">
+                  <div className="thumbnail-gallery">
+                    <ThumbnailGallery images={images} />
+                  </div>
                 </div>
               </div>
             }

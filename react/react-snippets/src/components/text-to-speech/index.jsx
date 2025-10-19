@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, TextArea, Input } from '../ui';
 import './index.css';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
     utterance.text = text;
     utterance.rate = speed;
     utterance.lang = language;
+    utterance.voice = speechSynthesis.getVoices().find(voice => 
+      voice.lang === language
+    ) || speechSynthesis.getVoices()[0];
 
     preventTextChange(utterance);
 
@@ -44,38 +48,58 @@ function App() {
   };
 
   return (
-    <div>
-      <textarea
+    <div className="text-to-speech-container">
+      <TextArea
         value={text}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={(e) => setText(e.target.value)}
         disabled={isTextDisabled}
-        className={`text-area ${isTextDisabled ? 'disabled' : ''} ${text === 'write something or click PLAY!' ? 'default' : ''}`}
+        placeholder="write something or click PLAY!"
+        rows={6}
+        className={`text-to-speech-textarea ${text === 'write something or click PLAY!' ? 'default' : ''}`}
       />
-      <div className="control">
-        <label htmlFor="speed">Audio Speed: </label>
-        <input
-          type="number"
-          min="0.5"
-          max="3"
-          step="0.5"
-          value={speed}
-          onChange={(e) => setSpeed(Number(e.target.value))}
-        />
-        <button className="btn btn-play" onClick={playText}>
-          PLAY
-        </button>
-        <button className="btn btn-stop" onClick={stopText}>
-          STOP
-        </button>
-      </div>
-      <div>
-        <label htmlFor="language">Choose a language:</label>
-        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-          <option value="en-US">English</option>
-          <option value="pt-BR">Portuguese</option>
-        </select>
+      <div className="controls-row">
+        <div className="controls-top">
+          <div className="speed-control">
+            <label htmlFor="speed">Audio Speed:</label>
+            <input
+              type="number"
+              min="0.5"
+              max="3"
+              step="0.5"
+              value={speed}
+              onChange={(e) => setSpeed(Number(e.target.value))}
+              className="speed-input"
+            />
+          </div>
+          <div className="language-control">
+            <label htmlFor="language">Language:</label>
+            <select 
+              value={language} 
+              onChange={(e) => setLanguage(e.target.value)}
+              className="language-select"
+            >
+              <option value="en-US">English</option>
+              <option value="pt-BR">Portuguese</option>
+            </select>
+          </div>
+        </div>
+        <div className="button-group">
+          <Button 
+            variant="primary" 
+            onClick={playText}
+            disabled={isTextDisabled}
+          >
+            PLAY
+          </Button>
+          <Button 
+            variant="secondary" 
+            onClick={stopText}
+          >
+            STOP
+          </Button>
+        </div>
       </div>
     </div>
   );

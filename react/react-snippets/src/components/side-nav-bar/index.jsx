@@ -46,15 +46,21 @@ function SideNavbar({ visible, show }) {
         >
           {!visible ? <FaAngleRight size={30} /> : <FaAngleLeft size={30} />}
         </button>
-        <div>
+        
+        {/* Header fixo */}
+        <div className="nav-header">
           <NavLink className="logo" to="/">
             <GiCubes size={50} />
           </NavLink>
-          <div className="links nav-top snippets-container">
-            <div className="bar-title">
-              <span>React Snippets</span>
-              <hr />
-            </div>
+          <div className="bar-title">
+            <span>React Snippets</span>
+            <hr />
+          </div>
+        </div>
+
+        {/* Área scrollável dos snippets */}
+        <div className="nav-scrollable">
+          <div className="links snippets-container">
 
             <NavLink
               to="/star-rating"
@@ -81,14 +87,14 @@ function SideNavbar({ visible, show }) {
               <span>Random Color Generator</span>
             </NavLink>
 
-            <NavLink
+            {/* <NavLink
               to="/image-slider"
               className="nav-link"
               onClick={handleLinkClick}
             >
               <FaThLarge size={ICON_SIZE} />
               <span>Image Slider</span>
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/scroll-progress-bar"
               className="nav-link"
@@ -148,7 +154,8 @@ function SideNavbar({ visible, show }) {
           </div>
         </div>
 
-        <div className="links">
+        {/* Footer fixo */}
+        <div className="nav-footer">
           <div className="nav-link bottom">
             <FaGithub size={ICON_SIZE} />
             <a

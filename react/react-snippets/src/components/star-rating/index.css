@@ -1,25 +1,55 @@
+.star-rating {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.star-rating svg {
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--color-border);
+  fill: var(--color-border);
+}
+
+.star-rating svg path {
+  fill: inherit;
+}
+
+.star-rating svg:hover {
+  transform: scale(1.1);
+}
+
 .hovered {
-  color: rgb(255, 213, 0);
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.4));
+}
+
+.hovered path {
 }
 
 .rated {
-  color: rgb(255, 213, 0);
-  stroke: rgb(255, 255, 255);
-  stroke-width: 2rem;
-  border-color: aliceblue;
-
-  /* Animation for stroke */
-  animation: strokeAnimation 1s forwards;
+  fill: #ffd700 !important;
+  color: #ffd700 !important;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
+  animation: starGlow 0.6s ease-out;
 }
 
-@keyframes strokeAnimation {
+.rated path {
+  fill: #ffd700 !important;
+}
+
+@keyframes starGlow {
   0% {
-    stroke-width: 0; /* Start with no stroke */
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
   }
   50% {
-    stroke-width: 2rem; /* Apply stroke halfway through the animation */
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.9));
   }
   100% {
-    stroke-width: 0; /* Revert back to no stroke at the end of the animation */
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
   }
 }
