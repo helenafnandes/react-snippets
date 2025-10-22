@@ -87,27 +87,10 @@ nav {
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #0000001a;
   position: relative;
 }
 
-.nav-scrollable::-webkit-scrollbar {
-  width: 6px;
-}
-
-.nav-scrollable::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-}
-
-.nav-scrollable::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 3px;
-}
-
-.nav-scrollable::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
 
 
 
@@ -190,4 +173,38 @@ nav {
   .nav-btn {
     display: none;
   }
+}
+
+/* Force sidebar scrollbar styles with ID selector */
+#sidebar-scrollable {
+  scrollbar-width: auto !important;
+  scrollbar-color: var(--color-primary) transparent !important;
+}
+
+#sidebar-scrollable::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+#sidebar-scrollable::-webkit-scrollbar-track {
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+#sidebar-scrollable::-webkit-scrollbar-thumb {
+  background: var(--color-primary) !important;
+  border-radius: 3px !important;
+  border: none !important;
+}
+
+#sidebar-scrollable::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover) !important;
+}
+
+#sidebar-scrollable::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
+#sidebar-scrollable::-webkit-scrollbar-button {
+	display: none !important;
 }

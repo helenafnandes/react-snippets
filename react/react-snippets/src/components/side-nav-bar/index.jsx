@@ -59,7 +59,14 @@ function SideNavbar({ visible, show }) {
         </div>
 
         {/* Área scrollável dos snippets */}
-        <div className="nav-scrollable">
+        <div 
+          id="sidebar-scrollable"
+          className="nav-scrollable"
+          style={{
+            scrollbarWidth: 'thin',
+            scrollbarColor: 'var(--color-primary) transparent'
+          }}
+        >
           <div className="links snippets-container">
 
             <NavLink
