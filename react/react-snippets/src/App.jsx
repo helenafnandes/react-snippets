@@ -134,17 +134,6 @@ function App() {
             }
           />
           <Route
-            path="/memoization"
-            element={
-              <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
-                <h2>React Memoization</h2>
-                <div className="page-content">
-                  <Memoization />
-                </div>
-              </div>
-            }
-          />
-          <Route
             path="/scroll-gallery"
             element={
               <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
