@@ -1,5 +1,5 @@
 nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -9,7 +9,6 @@ nav {
   background-color: var(--color-primary);
   padding: 0;
   transition: transform 1s;
-  position: fixed;
   z-index: 1000;
 }
 
@@ -38,7 +37,6 @@ nav {
   color: #fff;
 }
 
-/* Header fixo */
 .nav-header {
   padding: 2rem 1rem 1rem 1rem;
   background-color: var(--color-primary);
@@ -82,17 +80,14 @@ nav {
   align-self: center;
 }
 
-/* Área scrollável dos snippets */
 .nav-scrollable {
   flex: 1;
   overflow-y: auto;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: #0000001a;
   position: relative;
+  scrollbar-gutter: stable;
 }
-
-
-
 
 .bar-title {
   color: #fff;
@@ -129,7 +124,6 @@ nav {
   text-decoration: none;
 }
 
-/* Footer fixo */
 .nav-footer {
   padding: 1rem;
   background-color: var(--color-primary);
@@ -175,10 +169,58 @@ nav {
   }
 }
 
-/* Force sidebar scrollbar styles with ID selector */
+.nav-section {
+  margin: 1.5rem 0 1rem 0;
+  padding: 0 1rem;
+}
+
+.section-title {
+  color: #ffffff;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  padding: 0;
+}
+
+.section-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.section-toggle:hover {
+  color: var(--color-primary);
+}
+
+.section-toggle svg {
+  color: #ffffff !important;
+}
+
+.section-divider {
+  border: none;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: 0.5rem 0 1rem 0;
+  border-radius: 1px;
+}
+
 #sidebar-scrollable {
   scrollbar-width: auto !important;
   scrollbar-color: var(--color-primary) transparent !important;
+}
+
+.links {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #sidebar-scrollable::-webkit-scrollbar {

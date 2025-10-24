@@ -5,6 +5,8 @@ import {
   FaThLarge,
   FaBars,
   FaGithub,
+  FaChevronDown,
+  FaChevronRight,
 } from 'react-icons/fa';
 import { GiCubes } from 'react-icons/gi';
 import { NavLink } from 'react-router-dom';
@@ -13,22 +15,17 @@ import './index.css';
 const ICON_SIZE = 20;
 
 function SideNavbar({ visible, show }) {
-  // State to track if the view is mobile
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isComponentsCollapsed, setIsComponentsCollapsed] = useState(true);
 
-  // Update isMobile state on window resize
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Function to handle link click
   const handleLinkClick = () => {
-    if (isMobile) {
-      show(false);
-    }
+    if (isMobile) show(false);
   };
 
   return (
@@ -47,7 +44,6 @@ function SideNavbar({ visible, show }) {
           {!visible ? <FaAngleRight size={30} /> : <FaAngleLeft size={30} />}
         </button>
         
-        {/* Header fixo */}
         <div className="nav-header">
           <NavLink className="logo" to="/">
             <GiCubes size={50} />
@@ -58,7 +54,6 @@ function SideNavbar({ visible, show }) {
           </div>
         </div>
 
-        {/* Área scrollável dos snippets */}
         <div 
           id="sidebar-scrollable"
           className="nav-scrollable"
@@ -68,71 +63,17 @@ function SideNavbar({ visible, show }) {
           }}
         >
           <div className="links snippets-container">
-
+            <div className="nav-section">
+              <h4 className="section-title">React Concepts</h4>
+              <hr className="section-divider" />
+            </div>
             <NavLink
-              to="/star-rating"
+              to="/use-effect"
               className="nav-link"
               onClick={handleLinkClick}
             >
               <FaThLarge size={ICON_SIZE} />
-              <span>Star Rating</span>
-            </NavLink>
-            <NavLink
-              to="/accordion"
-              className="nav-link"
-              onClick={handleLinkClick}
-            >
-              <FaThLarge size={ICON_SIZE} />
-              <span>Accordion</span>
-            </NavLink>
-            <NavLink
-              to="/random-color-generator"
-              className="nav-link"
-              onClick={handleLinkClick}
-            >
-              <FaThLarge size={ICON_SIZE} />
-              <span>Random Color Generator</span>
-            </NavLink>
-
-            {/* <NavLink
-              to="/image-slider"
-              className="nav-link"
-              onClick={handleLinkClick}
-            >
-              <FaThLarge size={ICON_SIZE} />
-              <span>Image Slider</span>
-            </NavLink> */}
-            <NavLink
-              to="/scroll-progress-bar"
-              className="nav-link"
-              onClick={handleLinkClick}
-            >
-              <FaThLarge size={ICON_SIZE} />
-              <span>Scroll Progress Bar</span>
-            </NavLink>
-            <NavLink
-              to="/text-to-speech"
-              className="nav-link"
-              onClick={handleLinkClick}
-            >
-              <FaThLarge size={ICON_SIZE} />
-              <span>Text to Speech</span>
-            </NavLink>
-            <NavLink
-              to="/side-nav-bar"
-              className="nav-link"
-              onClick={handleLinkClick}
-            >
-              <FaThLarge size={ICON_SIZE} />
-              <span>This Side NavBar</span>
-            </NavLink>
-            <NavLink
-              to="/theme-toggle"
-              className="nav-link"
-              onClick={handleLinkClick}
-            >
-              <FaThLarge size={ICON_SIZE} />
-              <span>Theme Toggle</span>
+              <span>useEffect Hook</span>
             </NavLink>
             <NavLink
               to="/throttle-debounce"
@@ -140,28 +81,98 @@ function SideNavbar({ visible, show }) {
               onClick={handleLinkClick}
             >
               <FaThLarge size={ICON_SIZE} />
-              <span>Throttle and Debounce</span>
+              <span>Throttle & Debounce</span>
             </NavLink>
-            <NavLink
-              to="/scroll-gallery"
-              className="nav-link"
-              onClick={handleLinkClick}
-            >
-              <FaThLarge size={ICON_SIZE} />
-              <span>Scroll Gallery</span>
-            </NavLink>
-            <NavLink
-              to="/thumbnail-gallery"
-              className="nav-link"
-              onClick={handleLinkClick}
-            >
-              <FaThLarge size={ICON_SIZE} />
-              <span>Thumbnail Gallery</span>
-            </NavLink>
+            <div className="nav-section">
+              <button 
+                className="section-toggle"
+                onClick={() => setIsComponentsCollapsed(!isComponentsCollapsed)}
+              >
+                <h4 className="section-title">UI Components</h4>
+                {isComponentsCollapsed ? <FaChevronRight size={16} /> : <FaChevronDown size={16} />}
+              </button>
+              <hr className="section-divider" />
+            </div>
+            
+            {!isComponentsCollapsed && (
+              <>
+                <NavLink
+                  to="/star-rating"
+                  className="nav-link"
+                  onClick={handleLinkClick}
+                >
+                  <FaThLarge size={ICON_SIZE} />
+                  <span>Star Rating</span>
+                </NavLink>
+                <NavLink
+                  to="/accordion"
+                  className="nav-link"
+                  onClick={handleLinkClick}
+                >
+                  <FaThLarge size={ICON_SIZE} />
+                  <span>Accordion</span>
+                </NavLink>
+                <NavLink
+                  to="/random-color-generator"
+                  className="nav-link"
+                  onClick={handleLinkClick}
+                >
+                  <FaThLarge size={ICON_SIZE} />
+                  <span>Random Color Generator</span>
+                </NavLink>
+                <NavLink
+                  to="/scroll-progress-bar"
+                  className="nav-link"
+                  onClick={handleLinkClick}
+                >
+                  <FaThLarge size={ICON_SIZE} />
+                  <span>Scroll Progress Bar</span>
+                </NavLink>
+                <NavLink
+                  to="/text-to-speech"
+                  className="nav-link"
+                  onClick={handleLinkClick}
+                >
+                  <FaThLarge size={ICON_SIZE} />
+                  <span>Text to Speech</span>
+                </NavLink>
+                <NavLink
+                  to="/side-nav-bar"
+                  className="nav-link"
+                  onClick={handleLinkClick}
+                >
+                  <FaThLarge size={ICON_SIZE} />
+                  <span>This Side NavBar</span>
+                </NavLink>
+                <NavLink
+                  to="/theme-toggle"
+                  className="nav-link"
+                  onClick={handleLinkClick}
+                >
+                  <FaThLarge size={ICON_SIZE} />
+                  <span>Theme Toggle</span>
+                </NavLink>
+                <NavLink
+                  to="/scroll-gallery"
+                  className="nav-link"
+                  onClick={handleLinkClick}
+                >
+                  <FaThLarge size={ICON_SIZE} />
+                  <span>Scroll Gallery</span>
+                </NavLink>
+                <NavLink
+                  to="/thumbnail-gallery"
+                  className="nav-link"
+                  onClick={handleLinkClick}
+                >
+                  <FaThLarge size={ICON_SIZE} />
+                  <span>Thumbnail Gallery</span>
+                </NavLink>
+              </>
+            )}
           </div>
         </div>
 
-        {/* Footer fixo */}
         <div className="nav-footer">
           <div className="nav-link bottom">
             <FaGithub size={ICON_SIZE} />
