@@ -8,6 +8,8 @@ import ScrollProgressBar from './components/scroll-progress-bar';
 import TextToSpeech from './components/text-to-speech';
 import ThemeToggle from './components/theme-toggle';
 import ThrottleDebounce from './components/throttle-debounce/ThrottleDebounce';
+import UseEffect from './components/use-effect/UseEffect';
+import Memoization from './components/memoization/Memoization';
 import ScrollGallery from './components/scroll-gallery/ScrollGallery';
 import ThumbnailGallery from './components/thumbnail-gallery/ThumbnailGallery';
 import { ThemeToggle as GlobalThemeToggle } from './components/ui';
@@ -117,6 +119,28 @@ function App() {
                 <h2>Throttle and Debounce</h2>
                 <div className="page-content">
                   <ThrottleDebounce />
+                </div>
+              </div>
+            }
+          />
+          <Route
+            path="/use-effect"
+            element={
+              <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
+                <h2>useEffect Hook Demonstrator</h2>
+                <div className="page-content">
+                  <UseEffect />
+                </div>
+              </div>
+            }
+          />
+          <Route
+            path="/memoization"
+            element={
+              <div className={!navVisible ? 'page' : 'page page-with-navbar'}>
+                <h2>React Memoization</h2>
+                <div className="page-content">
+                  <Memoization />
                 </div>
               </div>
             }
