@@ -40,7 +40,7 @@ Check out the live demo [here](https://react-snippets-roan.vercel.app/) on Verce
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/helenafnandes/react-snippets.git
 
 # Navigate to the project directory
 cd react-snippets
